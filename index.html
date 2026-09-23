@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fulca System | Soporte TI para Empresas</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #07111f;
+            color: white;
+        }
+
+        /* MENU */
+        header {
+            background: #050b14;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #17304d;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #18a8ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #18a8ff;
+        }
+
+        /* PORTADA */
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            background:
+                radial-gradient(circle at 75% 40%, #0d3b66 0%, transparent 35%),
+                linear-gradient(120deg, #07111f, #091827);
+        }
+
+        .hero-contenido {
+            max-width: 720px;
+        }
+
+        .etiqueta {
+            color: #18a8ff;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 58px;
+            line-height: 1.05;
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: #18a8ff;
+        }
+
+        .hero p {
+            color: #b7c5d6;
+            font-size: 19px;
+            line-height: 1.7;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .boton {
+            display: inline-block;
+            background: #168ee0;
+            color: white;
+            padding: 15px 25px;
+            margin-right: 12px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background: #35b5ff;
+        }
+
+        .boton-secundario {
+            background: transparent;
+            border: 1px solid #52708d;
+        }
+
+        /* SERVICIOS */
+        .servicios {
+            padding: 80px 8%;
+            background: #0a1421;
+            text-align: center;
+        }
+
+        .servicios h2 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+
+        .servicios > p {
+            color: #95a9bd;
+            margin-bottom: 45px;
+        }
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .tarjeta {
+            background: #101d2c;
+            padding: 35px 25px;
+            border-radius: 12px;
+            border: 1px solid #1c344d;
+            text-align: left;
+            transition: .3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-6px);
+            border-color: #18a8ff;
+        }
+
+        .icono {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .tarjeta h3 {
+            margin-bottom: 12px;
+        }
+
+        .tarjeta p {
+            color: #9eb0c2;
+            line-height: 1.6;
+        }
+        .solicitar {
+    display: inline-block;
+    margin-top: 22px;
+    color: #18a8ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* EMPRESAS / FIELD SERVICE */
+
+.empresas {
+    padding: 100px 8%;
+    background:
+        radial-gradient(circle at 80% 50%, #0d3b66 0%, transparent 30%),
+        #07111f;
+}
+
+.empresas-contenido {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr .8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.empresas h2 {
+    font-size: 45px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.empresas h2 span {
+    color: #18a8ff;
+}
+
+.empresas-texto > p {
+    color: #a9b9c9;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+}
+
+.beneficios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 35px 0;
+}
+
+.beneficios div {
+    background: #0d1b2a;
+    border: 1px solid #1c344d;
+    padding: 18px;
+    border-radius: 8px;
+}
+
+.beneficios strong {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.beneficios small {
+    color: #91a6ba;
+    line-height: 1.5;
+}
+
+.panel-empresa {
+    background: #0e1c2b;
+    border: 1px solid #244563;
+    border-radius: 15px;
+    padding: 35px;
+    box-shadow: 0 25px 60px #0005;
+}
+
+.estado {
+    color: #75d9a0;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.punto {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    background: #25d366;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.panel-empresa h3 {
+    font-size: 25px;
+    margin-bottom: 30px;
+}
+
+.dato {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #20364b;
+}
+
+.dato:last-child {
+    border-bottom: none;
+}
+
+.dato > span {
+    font-size: 25px;
+}
+
+.dato small {
+    display: block;
+    color: #8095a8;
+    margin-bottom: 4px;
+}
+
+.dato strong {
+    font-size: 15px;
+}
+
+.solicitar:hover {
+    color: white;
+}
+
+/* PLANES */
+
+.planes {
+    background: #0a1421;
+    padding: 100px 8%;
+}
+
+.planes-encabezado {
+    max-width: 750px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.planes-encabezado h2 {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.planes-encabezado p {
+    color: #95a9bd;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.planes-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.plan {
+    position: relative;
+    background: #101d2c;
+    border: 1px solid #1c344d;
+    border-radius: 14px;
+    padding: 38px 32px;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan:hover {
+    transform: translateY(-6px);
+    border-color: #18a8ff;
+}
+
+.plan.destacado {
+    border: 2px solid #18a8ff;
+    box-shadow: 0 15px 50px #008cff22;
+}
+
+.recomendado {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #18a8ff;
+    color: white;
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.plan-icono {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.plan h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.plan-descripcion {
+    color: #9eb0c2;
+    line-height: 1.6;
+    min-height: 78px;
+}
+
+.plan ul {
+    list-style: none;
+    margin: 28px 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.plan li {
+    color: #b9c7d5;
+    padding: 10px 0;
+    border-bottom: 1px solid #1e3347;
+}
+
+.plan-boton {
+    display: block;
+    text-align: center;
+    padding: 14px;
+    border: 1px solid #18a8ff;
+    border-radius: 7px;
+    color: #18a8ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.plan-boton:hover,
+.plan-boton.principal {
+    background: #168ee0;
+    color: white;
+}
+
+.plan-boton.principal:hover {
+    background: #35b5ff;
+}
+
+/* NOSOTROS */
+
+.nosotros {
+    padding: 100px 8%;
+    background: #07111f;
+}
+
+.nosotros-contenido {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.nosotros h2 {
+    font-size: 44px;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.nosotros h2 span {
+    color: #18a8ff;
+}
+
+.nosotros-texto p {
+    color: #9eb0c2;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.nosotros-texto .boton {
+    margin-top: 15px;
+}
+
+.nosotros-datos {
+    display: grid;
+    gap: 16px;
+}
+
+.dato-experiencia {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    background: linear-gradient(135deg, #10263a, #0d1b2a);
+    border: 1px solid #22547a;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.dato-experiencia strong {
+    font-size: 48px;
+    color: #18a8ff;
+}
+
+.dato-experiencia span {
+    color: #c4d0dc;
+    line-height: 1.5;
+}
+
+.ventaja {
+    display: flex;
+    gap: 20px;
+    background: #101d2c;
+    border: 1px solid #1c344d;
+    border-radius: 10px;
+    padding: 22px;
+}
+
+.ventaja-icono {
+    font-size: 28px;
+}
+
+.ventaja h3 {
+    margin-bottom: 7px;
+    font-size: 18px;
+}
+
+.ventaja p {
+    color: #91a6ba;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+        /* WHATSAPP */
+        .whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            background: #25D366;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 29px;
+            box-shadow: 0 5px 20px #0008;
+        }
+
+        /* CELULAR */
+        @media (max-width: 800px) {
+            nav {
+                display: none;
+            }
+
+            h1 {
+                font-size: 42px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 560px;
+            }
+            .empresas-contenido {
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+.planes-grid {
+    grid-template-columns: 1fr;
+}
+
+.planes-encabezado h2 {
+    font-size: 32px;
+}
+
+.plan-descripcion {
+    min-height: auto;
+}
+
+.empresas h2 {
+    font-size: 35px;
+}
+
+.beneficios {
+    grid-template-columns: 1fr;
+}
+.nosotros-contenido {
+    grid-template-columns: 1fr;
+    gap: 45px;
+}
+
+.nosotros h2 {
+    font-size: 34px;
+}
+
+.dato-experiencia strong {
+    font-size: 40px;
+}
+        }
+
+/* CONTACTO */
+
+.contacto {
+    padding: 100px 8%;
+    background:
+        radial-gradient(circle at 15% 50%, #0d3b66 0%, transparent 28%),
+        #0a1421;
+}
+
+.contacto-contenido {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.contacto h2 {
+    font-size: 44px;
+    margin-bottom: 22px;
+}
+
+.contacto h2 span {
+    color: #18a8ff;
+}
+
+.contacto-info > p {
+    color: #9eb0c2;
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+.contacto-datos {
+    display: grid;
+    gap: 15px;
+}
+
+.contacto-dato {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    padding: 17px 0;
+}
+
+.contacto-dato > span {
+    font-size: 27px;
+}
+
+.contacto-dato small {
+    display: block;
+    color: #8095a8;
+    margin-bottom: 5px;
+}
+
+.contacto-dato strong {
+    display: block;
+    font-size: 15px;
+}
+
+.contacto-formulario {
+    background: #101d2c;
+    border: 1px solid #244563;
+    padding: 38px;
+    border-radius: 14px;
+}
+
+.contacto-formulario h3 {
+    font-size: 25px;
+    margin-bottom: 28px;
+}
+
+.contacto-formulario form {
+    display: grid;
+    gap: 12px;
+}
+
+.contacto-formulario label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.contacto-formulario input,
+.contacto-formulario select,
+.contacto-formulario textarea {
+    display: block;
+    width: 100%;
+    background: #091522;
+    color: white;
+    border: 1px solid #29445e;
+    border-radius: 7px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+.contacto-formulario input:focus,
+.contacto-formulario select:focus,
+.contacto-formulario textarea:focus {
+    border-color: #18a8ff;
+}
+
+.contacto-formulario textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.boton-formulario {
+    width: 100%;
+    margin-top: 15px;
+    border: none;
+    border-radius: 7px;
+    padding: 16px;
+    background: #168ee0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-formulario:hover {
+    background: #35b5ff;
+}
+
+.aviso-formulario {
+    display: block;
+    color: #71879a;
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .contacto-contenido {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contacto h2 {
+        font-size: 34px;
+    }
+
+    .contacto-formulario {
+        padding: 25px;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">FULCA <span>SYSTEM</span></div>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#empresas">Empresas</a>
+        <a href="#planes">Planes</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-contenido">
+
+        <div class="etiqueta">
+            SOPORTE & SOLUCIONES TECNOLÓGICAS
+        </div>
+
+        <h1>
+            Tecnología que mantiene
+            <span>tu negocio en marcha.</span>
+        </h1>
+
+        <p>
+            Soporte técnico profesional para empresas y negocios.
+            Atendemos computadoras, redes, impresoras,
+            videovigilancia y requerimientos tecnológicos,
+            de forma presencial y remota.
+        </p>
+
+        <a class="boton" href="#servicios">
+            Ver servicios
+        </a>
+
+        <a class="boton boton-secundario" href="#">
+            Solicitar soporte
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="servicios" id="servicios">
+
+    <div class="etiqueta">SERVICIOS FULCA SYSTEM</div>
+
+    <h2>Soluciones para tu empresa</h2>
+
+    <p>
+        Atención técnica para empresas, negocios y usuarios
+        que necesitan mantener sus equipos y servicios operativos.
+    </p>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">💻</div>
+            <h3>Soporte para PC y Laptop</h3>
+            <p>
+                Diagnóstico de fallas, lentitud, Windows,
+                configuración, optimización y solución de incidencias.
+            </p>
+            <a href="#" class="solicitar"
+   onclick="solicitarServicio('Soporte para PC y Laptop'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🛠️</div>
+            <h3>Mantenimiento Preventivo</h3>
+            <p>
+                Limpieza interna y externa, optimización del sistema,
+                revisión de componentes y prevención de fallas.
+    </p>
+                <a href="#" class="solicitar"
+   onclick="solicitarServicio('Mantenimiento Preventivo'); return false;">
+    Solicitar servicio →
+</a>
+</div>
+
+        <div class="tarjeta">
+            <div class="icono">🖨️</div>
+            <h3>Impresoras</h3>
+            <p>
+                Instalación, configuración, mantenimiento y solución
+                de problemas de impresión y conectividad.
+    </p>
+                <a href="#" class="solicitar"
+   onclick="solicitarServicio('Impresoras'); return false;">
+    Solicitar servicio →
+</a>
+</div>
+           
+        <div class="tarjeta">
+            <div class="icono">🌐</div>
+            <h3>Redes & Wi-Fi</h3>
+            <p>
+                Configuración de routers, puntos de acceso,
+                redes LAN, Wi-Fi y diagnóstico de conectividad.
+            </p>
+            <!-- REDES -->
+<a href="#" class="solicitar"
+   onclick="solicitarServicio('Redes & Wi-Fi'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📹</div>
+            <h3>Cámaras de Seguridad</h3>
+            <p>
+                Instalación y configuración de cámaras IP,
+                DVR, NVR y acceso remoto.
+            </p>
+            <!-- CÁMARAS -->
+<a href="#" class="solicitar"
+   onclick="solicitarServicio('Cámaras de seguridad'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🛡️</div>
+            <h3>Seguridad Informática</h3>
+            <p>
+                Antivirus, protección de equipos, actualizaciones,
+                respaldos y buenas prácticas de seguridad.
+            </p>
+            <!-- SEGURIDAD INFORMÁTICA -->
+<a href="#" class="solicitar"
+   onclick="solicitarServicio('Seguridad informática'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🖥️</div>
+            <h3>Soporte Remoto</h3>
+            <p>
+                Atención de incidencias sin necesidad de una visita
+                presencial cuando el problema pueda resolverse remotamente.
+            </p>
+            <a href="#" class="solicitar"
+   onclick="solicitarServicio('Soporte remoto'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🏢</div>
+            <h3>Soporte TI Empresarial</h3>
+            <p>
+                Atención tecnológica para oficinas y empresas
+                mediante requerimientos o planes de soporte.
+            </p>
+            <a href="#" class="solicitar">Cotizar →</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📍</div>
+            <h3>Field Service en Iquitos</h3>
+            <p>
+                Soporte técnico presencial para empresas nacionales
+                que necesitan personal TI local en Iquitos.
+            </p>
+            <a href="#" class="solicitar"
+   onclick="solicitarServicio('Field Service / Remote Hands'); return false;">
+    Solicitar servicio →
+</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="empresas" id="empresas">
+
+    <div class="empresas-contenido">
+
+        <div class="empresas-texto">
+
+            <div class="etiqueta">
+                FIELD SERVICE · REMOTE HANDS
+            </div>
+
+            <h2>
+                ¿Tu empresa necesita
+                <span>un técnico en Iquitos?</span>
+            </h2>
+
+            <p>
+                Fulca System brinda soporte técnico presencial para
+                empresas que necesitan atender requerimientos tecnológicos
+                en Iquitos sin desplazar personal desde otras ciudades.
+            </p>
+
+            <div class="beneficios">
+
+                <div>
+                    <strong>✓ Atención On-Site</strong>
+                    <small>Nos desplazamos hasta la sede o punto de atención.</small>
+                </div>
+
+                <div>
+                    <strong>✓ Evidencia fotográfica</strong>
+                    <small>Documentamos el trabajo realizado.</small>
+                </div>
+
+                <div>
+                    <strong>✓ Informe técnico</strong>
+                    <small>Reporte de diagnóstico, acciones y resultado.</small>
+                </div>
+
+                <div>
+                    <strong>✓ Coordinación remota</strong>
+                    <small>
+                        Podemos trabajar siguiendo las indicaciones
+                        del área TI de tu empresa.
+                    </small>
+                </div>
+
+            </div>
+
+            <a href="#" class="boton">
+                Solicitar técnico
+            </a>
+
+        </div>
+
+
+        <div class="panel-empresa">
+
+            <div class="estado">
+                <span class="punto"></span>
+                COBERTURA LOCAL
+            </div>
+
+            <h3>Soporte técnico en campo</h3>
+
+            <div class="dato">
+                <span>📍</span>
+                <div>
+                    <small>Ubicación</small>
+                    <strong>Iquitos, Loreto</strong>
+                </div>
+            </div>
+
+            <div class="dato">
+                <span>🏢</span>
+                <div>
+                    <small>Modalidad</small>
+                    <strong>Empresas & Negocios</strong>
+                </div>
+            </div>
+
+            <div class="dato">
+                <span>🛠️</span>
+                <div>
+                    <small>Servicio</small>
+                    <strong>On-Site / Remote Hands</strong>
+                </div>
+            </div>
+
+            <div class="dato">
+                <span>📋</span>
+                <div>
+                    <small>Entrega</small>
+                    <strong>Informe de atención</strong>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="planes" id="planes">
+
+    <div class="planes-encabezado">
+        <div class="etiqueta">SOPORTE A TU MEDIDA</div>
+
+        <h2>Elige cómo quieres trabajar con nosotros</h2>
+
+        <p>
+            Desde una atención puntual hasta soporte tecnológico
+            recurrente para tu empresa.
+        </p>
+    </div>
+
+    <div class="planes-grid">
+
+        <!-- PLAN 1 -->
+        <div class="plan">
+
+            <div class="plan-icono">🔧</div>
+
+            <h3>Por requerimiento</h3>
+
+            <p class="plan-descripcion">
+                Para empresas y negocios que necesitan resolver
+                una incidencia o realizar un trabajo puntual.
+            </p>
+
+            <ul>
+                <li>✓ Atención presencial o remota</li>
+                <li>✓ Diagnóstico técnico</li>
+                <li>✓ Solución de incidencias</li>
+                <li>✓ Servicio On-Site</li>
+                <li>✓ Informe de atención</li>
+            </ul>
+
+            <a href="#" class="plan-boton">
+                Solicitar servicio
+            </a>
+
+        </div>
+
+
+        <!-- PLAN 2 -->
+        <div class="plan destacado">
+
+            <div class="recomendado">
+                RECOMENDADO
+            </div>
+
+            <div class="plan-icono">🏢</div>
+
+            <h3>Plan Negocio</h3>
+
+            <p class="plan-descripcion">
+                Para pequeñas empresas que necesitan acompañamiento
+                técnico durante el mes.
+            </p>
+
+            <ul>
+                <li>✓ Soporte remoto</li>
+                <li>✓ Visitas técnicas programadas</li>
+                <li>✓ Mantenimiento preventivo</li>
+                <li>✓ Soporte de impresoras y red</li>
+                <li>✓ Seguimiento de incidencias</li>
+            </ul>
+
+            <a href="#" class="plan-boton principal">
+                Solicitar cotización
+            </a>
+
+        </div>
+
+
+        <!-- PLAN 3 -->
+        <div class="plan">
+
+            <div class="plan-icono">🖥️</div>
+
+            <h3>Plan Empresa</h3>
+
+            <p class="plan-descripcion">
+                Servicio TI personalizado para organizaciones
+                con mayores requerimientos tecnológicos.
+            </p>
+
+            <ul>
+                <li>✓ Soporte presencial y remoto</li>
+                <li>✓ Gestión de incidencias</li>
+                <li>✓ Mantenimiento programado</li>
+                <li>✓ Inventario y seguimiento TI</li>
+                <li>✓ Atención según requerimiento</li>
+            </ul>
+
+            <a href="#" class="plan-boton">
+                Solicitar cotización
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="nosotros" id="nosotros">
+
+    <div class="nosotros-contenido">
+
+        <div class="nosotros-texto">
+
+            <div class="etiqueta">
+                CONOCE FULCA SYSTEM
+            </div>
+
+            <h2>
+                Soporte tecnológico con
+                <span>experiencia en campo.</span>
+            </h2>
+
+            <p>
+                En Fulca System ayudamos a empresas, negocios y usuarios
+                a resolver sus necesidades tecnológicas mediante atención
+                técnica profesional, soluciones prácticas y seguimiento
+                de cada servicio.
+            </p>
+
+            <p>
+                Trabajamos con equipos de cómputo, impresoras, redes,
+                videovigilancia y soporte TI, brindando atención presencial
+                en Iquitos y soporte remoto según el requerimiento.
+            </p>
+
+            <a href="#contacto" class="boton">
+                Trabaja con nosotros
+            </a>
+
+        </div>
+
+
+        <div class="nosotros-datos">
+
+            <div class="dato-experiencia">
+                <strong>08+</strong>
+                <span>Años de experiencia<br>en soporte TI</span>
+            </div>
+
+            <div class="ventaja">
+                <div class="ventaja-icono">⚡</div>
+                <div>
+                    <h3>Respuesta ágil</h3>
+                    <p>
+                        Evaluamos cada requerimiento para brindar
+                        una solución adecuada.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ventaja">
+                <div class="ventaja-icono">🔧</div>
+                <div>
+                    <h3>Experiencia práctica</h3>
+                    <p>
+                        Diagnóstico y atención de incidencias
+                        directamente en campo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="ventaja">
+                <div class="ventaja-icono">📋</div>
+                <div>
+                    <h3>Trabajo documentado</h3>
+                    <p>
+                        Podemos entregar evidencias e informes
+                        de las atenciones realizadas.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="nosotros" id="nosotros">
+
+
+</section>
+
+
+<!-- CONTACTO -->
+
+<section class="contacto" id="contacto">
+
+    <div class="contacto-contenido">
+
+        <div class="contacto-info">
+
+            <div class="etiqueta">HABLEMOS</div>
+
+            <h2>
+                ¿Necesitas <span>soporte técnico?</span>
+            </h2>
+
+            <p>
+                Cuéntanos qué necesitas y coordinaremos la atención
+                más adecuada para tu empresa, negocio o equipo.
+            </p>
+
+            <div class="contacto-datos">
+
+                <div class="contacto-dato">
+                    <span>📍</span>
+                    <div>
+                        <small>Cobertura presencial</small>
+                        <strong>Iquitos, Loreto - Perú</strong>
+                    </div>
+                </div>
+
+                <div class="contacto-dato">
+                    <span>💻</span>
+                    <div>
+                        <small>Soporte remoto</small>
+                        <strong>Disponible según requerimiento</strong>
+                    </div>
+                </div>
+
+                <div class="contacto-dato">
+                    <span>💬</span>
+                    <div>
+                        <small>WhatsApp</small>
+                        <strong>+51 977 516 889</strong>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contacto-formulario">
+
+            <h3>Solicitar atención</h3>
+
+            <form id="formularioContacto">
+
+                <label for="nombre">Nombre o empresa</label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ej. Empresa ABC"
+                    required
+                >
+
+
+                <label for="servicio">
+                    ¿Qué servicio necesitas?
+                </label>
+
+                <select id="servicio" required>
+
+                    <option value="">
+                        Selecciona un servicio
+                    </option>
+
+                    <option>Soporte PC / Laptop</option>
+
+                    <option>
+                        Mantenimiento preventivo
+                    </option>
+
+                    <option>Impresoras</option>
+
+                    <option>Redes & Wi-Fi</option>
+
+                    <option>
+                        Cámaras de seguridad
+                    </option>
+
+                    <option>
+                        Seguridad informática
+                    </option>
+
+                    <option>Soporte remoto</option>
+
+                    <option>
+                        Soporte TI empresarial
+                    </option>
+
+                    <option>
+                        Field Service / Remote Hands
+                    </option>
+
+                    <option>Plan Negocio</option>
+
+                    <option>Plan Empresa</option>
+
+                    <option>
+                        Otro requerimiento
+                    </option>
+
+                </select>
+
+
+                <label for="mensaje">
+                    Describe el requerimiento
+                </label>
+
+                <textarea
+                    id="mensaje"
+                    rows="5"
+                    placeholder="Cuéntanos brevemente qué problema o servicio necesitas..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="boton-formulario"
+                >
+                    Enviar por WhatsApp
+                </button>
+
+
+                <small class="aviso-formulario">
+                    Al enviar, se abrirá WhatsApp
+                    con los datos de tu solicitud.
+                </small>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BOTÓN FLOTANTE DE WHATSAPP -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/51977516889?text=Hola%20Fulca%20System%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios."
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Contactar a Fulca System por WhatsApp"
+>
+    ☎
+</a>
+
+
+<!-- FUNCIONAMIENTO DEL FORMULARIO -->
+
+<script>
+    function solicitarServicio(servicio) {
+
+    const formularioSeccion =
+        document.getElementById("contacto");
+
+    const selectorServicio =
+        document.getElementById("servicio");
+
+    selectorServicio.value = servicio;
+
+    formularioSeccion.scrollIntoView({
+        behavior: "smooth"
+    });
+}
+    const numeroWhatsApp = "51977516889";
+
+    const formulario =
+        document.getElementById("formularioContacto");
+
+
+    formulario.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+
+            const nombre =
+                document.getElementById("nombre").value;
+
+            const servicio =
+                document.getElementById("servicio").value;
+
+            const mensaje =
+                document.getElementById("mensaje").value;
+
+
+            const texto =
+`Hola Fulca System 👋
+
+Mi nombre / empresa: ${nombre}
+
+Servicio solicitado:
+${servicio}
+
+Requerimiento:
+${mensaje}
+
+Me gustaría recibir información para coordinar la atención.`;
+
+
+            const url =
+                "https://wa.me/" +
+                numeroWhatsApp +
+                "?text=" +
+                encodeURIComponent(texto);
+
+
+            window.open(url, "_blank");
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
